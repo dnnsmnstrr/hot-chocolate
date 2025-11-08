@@ -6,7 +6,7 @@ function openOriginalApp() {
   Linking.openURL('https://apps.apple.com/ca/app/yvr-hot-chocolate-fest/id1670251126');
 }
 
-export default function AboutPage() {
+export default function SettingsPage() {
   const colorScheme = useColorScheme();
 
   return (

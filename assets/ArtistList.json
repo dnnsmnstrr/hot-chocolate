@@ -1,0 +1,17 @@
+{
+    "version": "2025.11",
+    "data": [
+        {
+            "id": "artist-001",
+            "name": "John Lennon",
+            "description": "English singer, songwriter, and peace activist, co-founder of The Beatles.",
+            "type": "solo"
+        },
+        {
+            "id": "artist-002",
+            "name": "The Beatles",
+            "description": "Iconic British rock band formed in Liverpool in 1960.",
+            "type": "band"
+        }
+    ]
+}

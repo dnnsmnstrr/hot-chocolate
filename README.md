@@ -1,8 +1,6 @@
-# Hot chocolate app example written in Expo UI
+# Progressions App - Expo UI
 
-This is an example app using Expo UI and replicate from the [YVR Hot Chocolate Fest app](https://apps.apple.com/ca/app/yvr-hot-chocolate-fest/id1670251126).
-
-https://github.com/user-attachments/assets/0b3a918b-371a-40ae-a962-5f5916318567
+This is the 3rd or 4th iteration of my Progressions app using Expo UI
 
 ## Get started
 
@@ -17,3 +15,8 @@ https://github.com/user-attachments/assets/0b3a918b-371a-40ae-a962-5f5916318567
    ```bash
    npx expo run:ios
    ```
+
+## Links
+
+- [Website](https://progressions-web.vercel.app/?noRedirect=true)
+- [Web-Version of the previous iteration](https://progressions.expo.app/)

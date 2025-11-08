@@ -1,0 +1,21 @@
+{
+    "version": "2025.11",
+    "data": [
+        {
+            "id": "song-001",
+            "name": "Imagine",
+            "artistId": "artist-001",
+            "lyrics": "Imagine there's no heaven...\nIt's easy if you try...",
+            "chords": ["C F G Am", "F C Dm G"],
+            "tags": ["classic", "peace"]
+        },
+        {
+            "id": "song-002",
+            "name": "Let It Be",
+            "artistId": "artist-002",
+            "lyrics": "When I find myself in times of trouble...\nMother Mary comes to me...",
+            "chords": ["C G Am F", "C G F C"],
+            "tags": ["classic", "comfort"]
+        }
+    ]
+}
