@@ -8,7 +8,7 @@ import FlavourGroup from '@/components/FlavourGroup';
 import { FlavourList, LocationList, type Store } from '@/model';
 import { frame, padding } from '@expo/ui/swift-ui/modifiers';
 
-export default function LocationDetails() {
+export default function ArtistDetails() {
   const { id, hideStorePicker } = useLocalSearchParams();
   const colorScheme = useColorScheme();
   const { width: windowWidth } = useWindowDimensions();

@@ -1,5 +1,6 @@
 export { data as FlavourList } from './assets/FlavourList.json';
 export { data as LocationList } from './assets/LocationList.json';
+export { data as SongList } from './assets/SongList.json';
 
 export interface Flavour {
   id: number;
@@ -36,6 +37,12 @@ export interface Song {
   title: string;
   artistId: number;
   chords: string[];
+  tags: string[];
+}
+
+export interface Tag {
+  id: string;
+  name: string;
 }
 
 export interface SongSession {

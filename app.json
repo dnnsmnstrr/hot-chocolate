@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "hot-chocolate",
-    "slug": "hot-chocolate",
+    "name": "progressions",
+    "slug": "progressions",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "hot-chocolate",
+    "scheme": "progressions",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dnnsmnstrr.hot-chocolate"
+      "bundleIdentifier": "com.dnnsmnstrr.progressions"
     },
     "android": {
       "adaptiveIcon": {
@@ -35,7 +35,6 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "expo-maps",
       "expo-font",
       "expo-web-browser"
     ],

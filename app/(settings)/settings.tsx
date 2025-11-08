@@ -2,8 +2,8 @@ import { Button, Form, Host, Section, Text, VStack } from '@expo/ui/swift-ui';
 import * as Linking from 'expo-linking';
 import { useColorScheme } from 'react-native';
 
-function openOriginalApp() {
-  Linking.openURL('https://apps.apple.com/ca/app/yvr-hot-chocolate-fest/id1670251126');
+function openWebApp() {
+  Linking.openURL('https://progressions.expo.app/');
 }
 
 export default function SettingsPage() {
@@ -12,8 +12,8 @@ export default function SettingsPage() {
   return (
     <Host style={{ flex: 1 }} colorScheme={colorScheme}>
       <VStack spacing={16}>
-        <Text size={28} weight="bold">
-          Expo UI Demo
+        <Text size={22} weight="bold">
+          Progressions
         </Text>
 
         <Form>
@@ -37,7 +37,7 @@ export default function SettingsPage() {
           </Section>
 
           <Section>
-            <Button onPress={openOriginalApp}>View Original App on App Store</Button>
+            <Button onPress={openWebApp}>Try web version</Button>
           </Section>
         </Form>
       </VStack>
