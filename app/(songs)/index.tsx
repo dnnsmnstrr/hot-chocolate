@@ -26,10 +26,26 @@ export default function Index() {
   });
 
   const sortingFunction = (a: any, b: any) => {
+    if (!a[filter.sortBy] || !b[filter.sortBy] || filter.sortBy === 'lastPlay') {
+      return 0;
+    }
     if (filter.direction === 'desc') {
       return b[filter.sortBy].localeCompare(a[filter.sortBy]);
     }
     return a[filter.sortBy].localeCompare(b[filter.sortBy]);
+  };
+  const filterFunction = (item: any) => {
+    if (filter.favorites && !item.isFavourite) {
+      return false;
+    }
+    if (
+      filter.search &&
+      !item.name.toLowerCase().includes(filter.search.toLowerCase()) &&
+      !item.artist.toLowerCase().includes(filter.search.toLowerCase())
+    ) {
+      return false;
+    }
+    return true;
   };
   return (
     <>
@@ -38,7 +54,12 @@ export default function Index() {
           title: 'Songs',
           headerLargeTitle: true,
           headerSearchBarOptions: {
-            hideWhenScrolling: true,
+            onChangeText: (event) => {
+              const {
+                nativeEvent: { text },
+              } = event;
+              setFilter({ ...filter, search: text });
+            },
           },
           headerRight: () => {
             return (
@@ -55,7 +76,7 @@ export default function Index() {
                       Sort by Last Play
                     </Button>
                     <Button onPress={() => setFilter({ ...filter, favorites: !filter.favorites })}>
-                      Show Favourites Only
+                      {filter.favorites ? 'Show All Songs' : 'Show Favourites Only'}
                     </Button>
                   </ContextMenu.Items>
                   <ContextMenu.Trigger>
@@ -74,24 +95,26 @@ export default function Index() {
       />
       <Host style={{ flex: 1 }} colorScheme={colorScheme}>
         <List>
-          {SongList.sort(sortingFunction).map((item, index) => (
-            <Link href={`/songs/${item.id}`} asChild key={index}>
-              <Button>
-                <HStack>
-                  <VStack alignment="leading" spacing={4}>
-                    <Text size={14} color="primary">
-                      {item.name.trim()}
-                    </Text>
-                    <Text size={12} color="secondary">
-                      {item.artist.trim()}
-                    </Text>
-                  </VStack>
-                  <Spacer />
-                  <Image systemName="chevron.right" size={14} color="secondary" />
-                </HStack>
-              </Button>
-            </Link>
-          ))}
+          {SongList.filter(filterFunction)
+            .sort(sortingFunction)
+            .map((item, index) => (
+              <Link href={`/songs/${item.id}`} asChild key={index}>
+                <Button>
+                  <HStack>
+                    <VStack alignment="leading" spacing={4}>
+                      <Text size={14} color="primary">
+                        {item.name.trim()}
+                      </Text>
+                      <Text size={12} color="secondary">
+                        {item.artist.trim()}
+                      </Text>
+                    </VStack>
+                    <Spacer />
+                    <Image systemName="chevron.right" size={14} color="secondary" />
+                  </HStack>
+                </Button>
+              </Link>
+            ))}
         </List>
       </Host>
     </>

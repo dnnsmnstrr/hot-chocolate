@@ -19,9 +19,7 @@ export default function SettingsPage() {
         <Form>
           <Section title="About">
             <Text size={16}>
-              This is a demo application showcasing the capabilities of Expo UI components. The
-              design is inspired by the YVR Hot Chocolate Fest app, which is a real application
-              available on the App Store.
+              This is an experimental version of the Progressions app built with Expo UI.
             </Text>
           </Section>
 
