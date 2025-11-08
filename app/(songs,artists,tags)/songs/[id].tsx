@@ -1,10 +1,8 @@
-import { HStack, Host, Image, Spacer, Text, VStack } from '@expo/ui/swift-ui';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { useColorScheme } from 'react-native';
+import { Button, ScrollView, Text, useColorScheme, View } from 'react-native';
 
 import { SongList } from '@/model';
-import { padding } from '@expo/ui/swift-ui/modifiers';
 
 const sessions = [
   {
@@ -29,45 +27,43 @@ export default function SongDetails() {
 
   if (!song) {
     return (
-      <Host style={{ flex: 1 }} colorScheme={colorScheme}>
-        <VStack modifiers={[padding({ top: 16, leading: 16, bottom: 16, trailing: 16 })]}>
-          <Text>song not found</Text>
-        </VStack>
-      </Host>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>song not found</Text>
+      </View>
     );
   }
 
   const title = `${song.name}`;
   const lastPlay = `${lastSession?.date ? formatDate(lastSession?.date) : 'Not played yet'}`;
   return (
-    <>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 80 }}>
       <Stack.Screen options={{ title }} />
-      <Host style={{ flex: 1 }} colorScheme={colorScheme}>
-        <VStack
-          modifiers={[padding({ top: 16, leading: 16, bottom: 16, trailing: 16 })]}
-          spacing={16}
-          alignment="leading">
-          <HStack spacing={8}>
-            <Text size={24} weight="bold">
-              {title}
-            </Text>
-            <Image
-              systemName={isFavourite ? 'star.fill' : 'star'}
-              size={18}
-              color={isFavourite ? '#FFD700' : 'secondary'}
-              onPress={() => setIsFavourite(!isFavourite)}
-            />
-          </HStack>
 
-          <Text size={14} color="secondary">
+      <ScrollView>
+        <View style={{ paddingTop: 16, paddingLeft: 16, paddingBottom: 16, paddingRight: 16 }}>
+          <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
+            <Text style={{ fontSize: 22, fontWeight: 'bold' }}>{`${title} by ${song.artist}`}</Text>
+            <Button
+              onPress={() => setIsFavourite(!isFavourite)}
+              style={{ fontSize: 18 }}
+              title={isFavourite ? '⭐' : '☆'}
+            />
+          </View>
+
+          <Text
+            style={{
+              fontSize: 14,
+              color: colorScheme === 'dark' ? '#999' : '#666',
+              marginTop: 16,
+            }}>
             {lastPlay}
           </Text>
-
-          <Text size={16}>{song.lyrics}</Text>
-          <Spacer />
-        </VStack>
-      </Host>
-    </>
+        </View>
+        <View style={{ paddingHorizontal: 16, paddingTop: 16, paddingBottom: 92 }}>
+          <Text>{song.lyrics}</Text>
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 
